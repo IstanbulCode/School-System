@@ -1,0 +1,175 @@
+<header>
+  <div class="header-menu">
+    <div class="sidebar-btn" {{#unless institutionDetails}}style="border: 0 solid #000;"{{/unless}}>
+      <i class="far {{#if institutionDetails}}fa-bars{{else}}fa-school" style="margin-top: 6px;{{/if}}"></i>
+    </div>
+
+    {{#if institutionDetails}}
+      <div class="title"></div>
+    {{else}}
+      <a href="/">
+        <div class="title" style="margin-left: 40px;"></div>
+      </a>
+    {{/if}}
+
+    <ul>
+      {{#if institutionDetails}}
+        <li class="symbol"><a data-toggle="modal" data-target="#InstitutionAnnouncement"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+        <li class="symbol"><a href="/institution"><i class="far fa-home"></i></a></li>
+      {{else}}
+        <li class="symbol"><a href="/"><i class="far fa-home"></i></a></li>
+      {{/if}}
+    </ul>
+  </div>
+</header>
+
+<!-- Modal for to choose the Announcement -->
+<section>
+  <div class="modal fade" id="InstitutionAnnouncement" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><b style="color:#0b0e0e;">Create Announcement</b></h5>
+          <div class="close-btn" data-dismiss="modal"><i class="fal fa-times"></i></div>
+        </div>
+        <div class="modal-body">
+          <div class="row text-center">
+            <div class="different-announcement-div text-center">
+              <a href="/institution/everyOne-announcement" class="different-announcement btn btn">
+                <i class="different-announcement-icon far fa-users"></i><br>
+                <span class="different-announcement-text">Everyone</span>
+              </a>
+            </div>
+            <div class="different-announcement-div text-center">
+              <a href="/institution/student-announcement" class="different-announcement btn btn">
+                <i class="different-announcement-icon far fa-user-graduate"></i><br>
+                <span class="different-announcement-text">Student</span>
+              </a>
+            </div>
+            <div class="different-announcement-div text-center">
+              <a href="/institution/tutor-announcement" class="different-announcement btn btn">
+                <i class="different-announcement-icon far fa-chalkboard-teacher"></i><br>
+                <span class="different-announcement-text">Teacher</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="/institution/add-announcement" class="new-announcement btn btn">
+            <small>New Announcement</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #222424;
+  }
+
+  .sidebar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar-btn:hover {
+    background-color: #4B6F72;
+  }
+
+  .title {
+    font-size: 1.5em;
+    color: #fff;
+    margin: 0 20px;
+  }
+
+  .symbol {
+    color: #fff;
+    font-size: 1.2em;
+    margin-left: 15px;
+  }
+
+  .symbol a:hover {
+    color: #000 !important;
+  }
+
+  .modal-content {
+    border-radius: 15px !important;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .different-announcement-div {
+    width: 33%;
+  }
+
+  .different-announcement {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #212529;
+    padding-top: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .different-announcement:hover {
+    transform: translateY(-5px);
+    background-color: #343a40;
+  }
+
+  .different-announcement-icon {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .different-announcement-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .new-announcement {
+    background-color: #2F4F4F;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .new-announcement:hover {
+    background-color: #4B6F72;
+  }
+
+  .close-btn,
+  .icons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .close-btn {
+    height: 33px;
+    width: 33px;
+    color: #878787;
+    background: #f2f3fb;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .close-btn:hover {
+    background-color: #e2e3e8;
+  }
+</style>

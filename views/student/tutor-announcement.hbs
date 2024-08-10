@@ -1,0 +1,28 @@
+<section>
+    <div class="container-fluid">
+        {{#if announcements}}
+        {{#each announcements}}
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="card p-3" style="cursor: context-menu;">
+                    <div style="font-size: 16px; font-weight: 600;">{{this.title}}</div>
+                    <div class="mt-1" style="font-size: 11px;">{{this.date}}</div>
+                    <hr class="mt-2 mb-2">
+                    <div style="font-size: 14px;">{{this.content}}</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h6 class="text-center" style="position: absolute; left: 50%; transform: translateX(-50%);">No Announcements posted yet.</h6>
+        {{/if}}
+    </div>
+</section>
+
+
+
+<style>
+    hr {
+        background: #fff;
+    }
+</style>

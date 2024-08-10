@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Online School Management System</title>
+    <style>
+        :root {
+            --primary-color: #3a16ec;
+            --secondary-color: #5417c5;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/images/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        header, footer {
+            display: none; /* Hidden header and footer */
+        }
+
+        h1 {    
+            color: #1c2bca;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: justify;
+            text-justify: inter-word;
+            max-width: 600px;
+            margin: 10px 20px;
+            font-size: 18px;
+            color: #dbd9e4;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin: 20px 0;
+        }
+
+        .images img {
+            margin: 10px;
+            max-width: 200px;
+            border-radius: 10px;
+        }
+
+        .login-btn {
+           position: absolute;
+            top: 30px;
+            right: 10px;
+        }
+
+        .login-btn a {
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .login-btn a:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Hidden header content -->
+    </header>
+    <main>
+        <h1>Welcome to Online School Management System</h1>
+        <p>This system is an online management system for the school ,Our system includes students and teacher.  In the first section of system, a school must be built, this is done using the registration section, after that students and teachers can register in the system. Also, this system includes a section called admin that can manage all schools This system allows you to manage all aspects of your school, from student information to teacher schedules, all in one place. We hope you find it helpful and easy to use.</p>
+        <div class="images">
+            <img src="/images/image1.jpg" alt="Beautiful Image 1">
+            <img src="/images/image2.jpg" alt="Beautiful Image 2">
+            <img src="/images/image3.jpg" alt="Beautiful Image 3">
+        </div>
+        <p>Our system provides a user-friendly interface for managing students records, teacher schedules, and school administration. You can easily track attendance, grades, and assignments, and communicate with teachers and parents.</p>
+        <div class="login-btn">
+            <a href="/">Login</a>
+        </div>
+    </main>
+    <footer>
+        <!-- Hidden footer content -->
+    </footer>
+</body>
+</html>

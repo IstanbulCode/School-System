@@ -1,0 +1,136 @@
+<section class="main-container">
+    <div class="container-fluid">
+        <div class="row mb-3 justify-content-center">
+            <div class="col-12">
+                <div class="card-deck">
+                    <a href="/institution/add-class" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Create new class</h5>
+                            <p class="card-text">Here we can create new class or department. We can also see the classes already created.</p>
+                        </div>
+                    </a>
+                    <a href="/institution/all-students-different-status/?status=Signup pending" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Registered students</h5>
+                            <p class="card-text">Here we can see students who have registered.</p>
+                            {{#if NoSignupPendingStudents}}
+                            <span class="badge badge-secondary" id="cart-count">{{NoSignupPendingStudents}}</span>
+                            {{/if}}
+                        </div>
+                    </a>
+                    <a href="/institution/all-tutors-different-status/?status=Signup pending" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Registered Teacher</h5>
+                            <p class="card-text">Here we can see Teachers who have registered.</p>
+                            {{#if NoSignupPendingTutors}}
+                            <span class="badge badge-secondary" id="cart-count">{{NoSignupPendingTutors}}</span>
+                            {{/if}}
+                        </div>
+                    </a>
+                </div>
+                <div class="card-deck mt-3">
+                    <a data-toggle="modal" data-target="#InstitutionAnnouncement" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Create new announcement</h5>
+                            <p class="card-text">Here we can create new announcement to everyone or separate announcement to students and teachers.</p>
+                        </div>
+                    </a>
+                    <a href="/institution/all-students" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">All Students</h5>
+                            <p class="card-text">Here we can see all students in our school.</p>
+                        </div>
+                    </a>
+                    <a href="/institution/all-tutors" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">All Teachers</h5>
+                            <p class="card-text">Here we can see all teachers in our school.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-deck mt-3">
+                    <a href="/institution/all-classes-subjects" class="card text-decoration-none">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">All classes</h5>
+                            <p class="card-text">Here we can see all classes.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    body {
+        background: url('/images/home.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/images/home.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: brightness(0.3) blur(1px); /* تاریک‌تر و بلور کردن پس‌زمینه */
+            z-index: -1;
+        }
+
+    .main-container {
+        /* نیمه شفاف کردن پس‌زمینه‌ی کارت‌ها */
+        padding: 0%;
+    }
+
+    .card-deck {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1;
+        margin: 10px;
+        min-width: 250px;
+        background: #fff;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .card-text {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .badge-secondary {
+        background-color: #222424;
+        color: #fff;
+    }
+
+    .text-decoration-none:hover {
+        text-decoration: none;
+        color: #0056b3;
+    }
+</style>

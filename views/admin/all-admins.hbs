@@ -1,0 +1,114 @@
+{{#if admins}}
+<section>
+	<div class="container-fluid">
+		<Center>
+			<h3><b>All Admins</b></h3>
+		</Center>
+		<div class="row">
+			<table class="table" style="background-color:#D3D3D3;">
+				<thead>
+					<tr style="background-color: #2F4F4F; color: #fff;">
+						<th scope="col">No.</th>
+						<th scope="col">Name</th>
+						<th class="hide-small" scope="col">Email</th>
+						<th class="" scope="col">Date</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					{{#each admins}}
+					<tr>
+						<td style="width: 20%;">{{this.slno}}</td>
+
+						<td style="width: 20%;">{{this.fname}} {{this.name}}</td>
+						<td class="hide-small" style="width: 20%;">{{this.email}}</td>
+						<td class="" style="width: 20%;">{{this.date}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+				<hr>
+			</table>
+			<hr>
+		</div>
+	</div>
+</section>
+{{else}}
+<section>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p class="mt-5">There is not any students joined under your Institution</p>
+					<a data-toggle="modal" data-target="#shareProduct" class="btn btn btn-sm"
+						style="background-color:#222424; color: #fff;">Share link to students</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{/if}}
+<style>
+	@media screen and (max-width: 600px) {
+
+		/*Hide in small Devices*/
+		.hide-small {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+
+		/*Hide in medium Devices*/
+		.hide-medium {
+			display: none;
+		}
+
+		.table {
+			margin-left: 60px;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+
+		/*Hide in small Devices*/
+		.subjects {
+			display: none;
+		}
+
+		.large-device-name {
+			display: none;
+		}
+
+		.large-email {
+			display: none;
+		}
+	}
+
+	@media screen and (min-width: 600px) {
+
+		/*Hide in medium Devices*/
+		.small-device-name {
+			display: none;
+		}
+
+		.smallDevice-subjects {
+			display: none;
+		}
+
+		.close-modal-header {
+			display: none;
+		}
+
+		.student-info-close {
+			display: none;
+		}
+
+		.small-email {
+			display: none;
+		}
+	}
+
+	.main-container {
+		margin-left: 0;
+	}
+</style>

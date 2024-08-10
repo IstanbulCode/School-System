@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online School Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3a16ec;
+            --secondary-color: #5417c5;
+            --highlight-color: #2a1fbd;
+            --student-color: #3a17d4;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .banner-title {
+            font-size: 50px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px; /* Adjusted spacing below the images */
+            position: relative;
+        }
+
+        .images img {
+            margin: 10px;
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        .text-content {
+            text-align: center;
+            text-justify: inter-word;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 40px; /* Added margin for spacing below the text */
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .panel-btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .panel-btn a {
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            display: inline-block;
+            
+            padding: 10px 20px;
+            margin: 10px;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .panel-btn a.student {
+            background: var(--student-color);
+            border-color: var(--student-color);
+        }
+
+        .panel-btn a:hover {
+            opacity: 0.8;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .back-btn a {
+            background: var(--highlight-color);
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            border: 2px solid var(--highlight-color);
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .back-btn a:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        @media all and (max-width: 575px) {
+            .banner-title {
+                font-size: 41px;
+            }
+
+            .panel-btn a {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .back-btn a {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .images img {
+                width: 150px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-btn">
+        <a href="/welcome"><i class="fas fa-arrow-left"></i>&nbsp;Back</a>
+    </div>
+    <section class="banner">
+        <div class="banner-content">
+            <div class="banner-title">Online School Management System</div>
+            <div class="images">
+                <img src="/images/h.jpg" alt="Image 1">
+                <img src="/images/image1.jpg" alt="Image 2">
+                <img src="/images/bg.jpg" alt="Image 3">
+                <img src="/images/bg1.jpg" alt="Image 4">
+            </div>
+            <div class="text-content">
+                Welcome to the Online School Management System.<br/> This platform allows you to manage all school-related activities efficiently.
+            </div>
+            <div class="panel">
+                <div class="panel-btn">
+                    <a href="/student" class="student"></i>&nbsp;Login as Student</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

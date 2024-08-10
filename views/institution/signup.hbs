@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <title>School Sign Up</title>
+   <style>
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(-20px);
+         }
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      body {
+         background: url('/images/school.jpg') no-repeat center center fixed;
+         background-size: cover;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         font-family: 'Poppins', sans-serif;
+         overflow: hidden;
+         
+      }
+
+      body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/images/teacher.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: brightness(0.3) blur(5px); /* تاریک‌تر و بلور کردن پس‌زمینه */
+            z-index: -1;
+        }
+
+      header {
+         display: none; /* Hide the header */
+      }
+
+      .signup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+      .signup-container h2 {
+         margin-bottom: 30px;
+         font-size: 24px;
+         font-weight: bold;
+         text-align: center;
+         color: #333;
+      }
+
+      .signup-container .form-group {
+         margin-bottom: 20px;
+      }
+
+      .signup-container .form-group label {
+         font-weight: bold;
+         color: #555;
+      }
+
+     .signup-container .form-control {
+            height: 45px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+      .signup-container .btn {
+         background-color: #222424;
+         color: #fff;
+         padding: 10px 20px;
+         border-radius: 5px;
+         font-size: 16px;
+         font-weight: bold;
+         width: 100%;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         margin-top: 20px;
+      }
+
+      .signup-container .btn:hover {
+         background-color: #333;
+      }
+
+      .signup-container a {
+         display: block;
+         margin-top: 15px;
+         text-align: center;
+         color: #007bff;
+         text-decoration: none;
+         transition: color 0.3s;
+      }
+
+      .signup-container a:hover {
+         color: #0056b3;
+      }
+
+      .signup-container .text-danger {
+         margin-top: 10px;
+         font-size: 14px;
+         text-align: center;
+      }
+
+      .input-group-append .btn {
+         padding: 0 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <header>
+      <!-- Hidden Header Content -->
+   </header>
+   <div class="signup-container">
+      <h2>School Sign Up</h2>
+      <form action="/institution/signup" method="POST" id="institution-signup" onchange="signupErr()">
+         <div class="row">
+            <div class="form-group col-md-6">
+               <label for="name">Name</label>
+               <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="type">Type of School</label>
+               <select class="custom-select mr-sm-2" name="type" required>
+                  <option selected value="">Choose...</option>
+                  <option value="Private">Private</option>
+                  <option value="Public">Public</option>
+                  <option value="Other">Other</option>
+               </select>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="board">Board of School</label>
+               <input type="text" name="board" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="id">ID</label>
+               <div class="input-group">
+                  <input class="form-control" type="text" name="id" value="{{institutionId}}" readonly>
+                  <div class="input-group-append">
+                     <button class="btn btn-secondary" type="button" onclick="regenerateInstitutionId()">
+                        <i class="fas fa-sync-alt"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="email">Email</label>
+               <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="mobile">Mobile</label>
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text">+93</span>
+                  </div>
+                  <input type="tel" class="form-control" name="mobile" required>
+               </div>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="address">Address</label>
+               <textarea rows="3" name="address" class="form-control" required></textarea>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="head">Head of School</label>
+               <input type="text" name="head" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="password">Password</label>
+               <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group col-md-6">
+               <label for="cpassword">Confirm Password</label>
+               <input type="password" name="cpassword" class="form-control" required>
+               {{#if signupErr}}
+               <small class="text-danger" id="signupErr">{{signupErr}}</small>
+               {{/if}}
+            </div>
+            <div class="col-md-12">
+               <a href="/institution/login">Already have an account?</a>
+               <button type="submit" class="btn mt-3">Sign Up</button>
+            </div>
+         </div>
+      </form>
+   </div>
+
+   <script>
+      function signupErr() {
+         document.getElementById('signupErr').style.display = 'none';
+      }
+
+      function regenerateInstitutionId() {
+         // Add your logic here to regenerate the institution ID
+         document.getElementById('regenerateInstitutionId').value = 'newID12345';
+      }
+   </script>
+</body>
+
+</html>

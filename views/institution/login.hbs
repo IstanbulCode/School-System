@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <style>
+      @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(-20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+
+      body {
+         position: relative;
+         background: url('/images/school.jpg') no-repeat center center fixed;
+         background-size: cover;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         font-family: 'Poppins', sans-serif;
+         overflow: hidden;
+      }
+
+      body::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: url('/images/school.jpg') no-repeat center center fixed;
+         background-size: cover;
+         filter: brightness(0.3) blur(5px); /* تاریک‌تر و بلور کردن پس‌زمینه */
+         z-index: -1;
+      }
+
+      header {
+         display: none; /* Hide the header */
+      }
+
+      .back-button {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         background-color: #222424;
+         color: #fff;
+         padding: 10px 20px;
+         border-radius: 5px;
+         font-size: 16px;
+         font-weight: bold;
+         text-decoration: none;
+         transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+         background-color: #333;
+      }
+
+      .login-container {
+         background: rgba(255, 255, 255, 0.9);
+         padding: 40px;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         max-width: 400px;
+         width: 100%;
+         animation: fadeIn 1s ease-in-out;
+         z-index: 1; /* Ensures the login container is above the background */
+      }
+
+      .login-container h2 {
+         margin-bottom: 30px;
+         font-size: 24px;
+         font-weight: bold;
+         text-align: center;
+         color: #333;
+      }
+
+      .login-container .form-group {
+         margin-bottom: 20px;
+      }
+
+      .login-container .form-group label {
+         font-weight: bold;
+         color: #555;
+      }
+
+      .login-container .form-control {
+         height: 45px;
+         padding: 10px;
+         font-size: 16px;
+         border-radius: 5px;
+      }
+
+      .login-container .btn {
+         background-color: #222424;
+         color: #fff;
+         padding: 10px 20px;
+         border-radius: 5px;
+         font-size: 16px;
+         font-weight: bold;
+         width: 100%;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         margin-top: 20px;
+      }
+
+      .login-container .btn:hover {
+         background-color: #333;
+      }
+
+      .login-container a {
+         display: block;
+         margin-top: 15px;
+         text-align: center;
+         color: #007bff;
+         text-decoration: none;
+         transition: color 0.3s;
+      }
+
+      .login-container a:hover {
+         color: #0056b3;
+      }
+
+      .login-container .text-danger {
+         margin-top: 10px;
+         font-size: 14px;
+         text-align: center;
+      }
+   </style>
+   <title>School Login</title>
+</head>
+<body>
+   <header>
+      <!-- Hidden Header Content -->
+   </header>
+   <div class="login-container">
+      <h2>School Login</h2>
+      <form action="/institution/login" method="POST" id="login" onchange="loginErr()">
+         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" required>
+         </div>
+         <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" required>
+            {{#if loginErr}}
+            <small class="text-danger" id="loginErr">{{loginErr}}</small>
+            {{/if}}
+         </div>
+         <a href="/institution/signup">Create new account?</a>
+         <button type="submit" class="btn">Login</button>
+      </form>
+   </div>
+
+   <script>
+      function loginErr() {
+         document.getElementById('loginErr').style.display = 'none';
+      }
+   </script>
+</body>
+</html>
